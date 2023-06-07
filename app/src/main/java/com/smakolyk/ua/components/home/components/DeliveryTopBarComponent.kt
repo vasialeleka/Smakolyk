@@ -51,7 +51,7 @@ fun DeliveryTopBar(
         Text(
             modifier = Modifier.layoutId(Constraints.DELIVERY_TO),
             text = "Deliver to".uppercase(),
-            style = MaterialTheme.typography.body2,
+            style = MaterialTheme.typography.h5,
             color = Main200
         )
 
@@ -61,7 +61,7 @@ fun DeliveryTopBar(
                     .layoutId(Constraints.DELIVERY_ADDRESS)
                     .clickable { onAddressClicked.invoke() },
                 text = deliveryAddress,
-                style = MaterialTheme.typography.body2,
+                style = MaterialTheme.typography.subtitle2,
                 color = TextColorGray
             )
 
@@ -74,13 +74,14 @@ fun DeliveryTopBar(
             )
         }
 
-        Box(modifier = Modifier.layoutId(Constraints.BIN).clickable { onBinClicked.invoke() }) {
+        Box(modifier = Modifier.layoutId(Constraints.BIN)) {
             Image(
                 modifier = Modifier
                     .padding(10.dp)
                     .layoutId(Constraints.BIN)
                     .clip(CircleShape)
-                    .background(Main200),
+                    .background(Main200)
+                    .clickable { onBinClicked.invoke() },
                 painter = painterResource(id = R.drawable.ic_menu_1),
                 contentDescription = null,
                 contentScale = ContentScale.Crop
